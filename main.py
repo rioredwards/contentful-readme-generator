@@ -1,6 +1,10 @@
 import sys
 from api import get_project
-from markdownHelpers import to_markdown_text, rich_text_to_markdown_text
+from markdownHelpers import (
+    to_markdown_text,
+    slogan_to_markdown_text,
+    links_to_markdown_links,
+)
 
 
 # Get project's entry ID from Args. If no Args, exit with error message.
@@ -12,16 +16,20 @@ project_entry_ID = (
 project = get_project(project_entry_ID)
 print("Project requested: ", project.title)
 
-# Create string for title
+# Create string for title (Text)
 titleStr = to_markdown_text(project.title, "h1")
 
-# Extract and format slogan (Rich Text)
+# ECreate string for slogan (Rich Text)
 slogan_rich_text_nodes = project.slogan.get("content")[0].get("content")
-slogan_markdown_text = rich_text_to_markdown_text(slogan_rich_text_nodes)
+slogan_markdown_text = slogan_to_markdown_text(slogan_rich_text_nodes)
 
-print("slogan_markdown_text: ", slogan_markdown_text)
+# Create string for links (Links)
+links = links_to_markdown_links(project.links)
 
 # Write contents to README.md
+finalStr = titleStr + slogan_markdown_text + links
+print("Writing to README.md...")
+print(finalStr)
 f = open("README.md", "w")
-f.write(titleStr)
+f.write(finalStr)
 f.close()
