@@ -1,8 +1,22 @@
-def extract_slogan_content(project):
-    return project.slogan.get("content")[0].get("content")
+def extract_slogan_content(proj):
+    return proj.slogan.get("content")[0].get("content")
 
 
-def extract_slogan_text_and_style(slogan_objs):
+def extract_description_content(proj):
+    return proj.short_description.get("content")[0].get("content")
+
+
+def extract_text_and_style(rich_text_objs):
+    text = rich_text_objs.get("value")
+    marks = rich_text_objs.get("marks")
+    if len(marks) > 0:
+        style = marks[0].get("type")
+        return text, style
+    else:
+        return text, None
+
+
+def extract_description_text_and_style(slogan_objs):
     text = slogan_objs.get("value")
     marks = slogan_objs.get("marks")
     if len(marks) > 0:

@@ -1,11 +1,12 @@
 from markdown_helpers import to_markdown_text
 from content_extractors import (
     extract_slogan_content,
+    extract_description_content,
     extract_header_image_url_and_title,
 )
 from markdown_helpers import (
     to_markdown_text,
-    slogan_to_markdown_text,
+    rich_to_markdown_text,
     links_to_markdown_links,
     to_markdown_image,
 )
@@ -17,8 +18,13 @@ def format_title(proj):
 
 
 def format_slogan(proj):
-    slogan_rich_text_objs = extract_slogan_content(proj)
-    return slogan_to_markdown_text(slogan_rich_text_objs)
+    rich_text_objs = extract_slogan_content(proj)
+    return rich_to_markdown_text(rich_text_objs)
+
+
+def format_description(proj):
+    rich_text_objs = extract_description_content(proj)
+    return rich_to_markdown_text(rich_text_objs)
 
 
 def format_header_img(proj):
