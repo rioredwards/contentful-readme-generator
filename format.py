@@ -19,20 +19,47 @@ def format_title(proj):
 
 def format_rich_text(proj, name):
     rich_text_objs = extract_rich_text_content(proj, name)
-    sample_obj = rich_text_objs[0]
-    type = sample_obj.get("nodeType")
-    if type == "text":
-        return rich_to_markdown_text(rich_text_objs)
-    elif type == "list-item":
-        accumulator = ""
-        for i, obj in enumerate(rich_text_objs):
-            extracted_obj = extract_rich_text_content_from_obj(obj)
-            list_number = i + 1
-            accumulator += f"{list_number}. " + rich_to_markdown_text(extracted_obj)
-            print(accumulator)
-        return accumulator
-    else:
-        print("Unrecognized type: " + type)
+    print(rich_text_objs)
+    # sample_obj = rich_text_objs[0]
+    # type = sample_obj.get("nodeType")
+    # if type == "text":
+    #     return rich_to_markdown_text(rich_text_objs)
+    # elif type == "list-item":
+    #     accumulator = ""
+    #     for i, obj in enumerate(rich_text_objs):
+    #         extracted_obj = extract_rich_text_content_from_obj(obj)
+    #         list_number = i + 1
+    #         accumulator += f"{list_number}. " + rich_to_markdown_text(extracted_obj)
+    #     return accumulator
+    # else:
+    #     print("Unrecognized type: " + type)
+
+
+# result = [
+#     [
+#         ("Pull the lever to start.", []),
+#         ("Click on the stop buttons to stop the reels.", []),
+#         (
+#             "Once all the reels have stopped, your quest will be printed out on the display panel.",
+#             [],
+#         ),
+#         ("Get coding!", []),
+#     ]
+# ]
+
+result = [
+    [],
+    [("Pull the lever to start.", [])],
+    [("Click on the stop buttons to stop the reels.", [])],
+    [
+        (
+            "Once all the reels have stopped, your quest will be printed out on the display panel.",
+            [],
+        )
+    ],
+    [("Get coding!", [])],
+    ("", []),
+]
 
 
 def format_header_img(proj):
