@@ -18,6 +18,8 @@ def to_markdown_text(str, style):
         case "italic":
             return "_" + str + "_"
         case _:
+            if style is not None:
+                print("Unrecognized style: " + style)
             return str
 
 

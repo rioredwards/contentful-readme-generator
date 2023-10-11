@@ -3,9 +3,15 @@ def extract_rich_text_content(proj, name):
     return entity.get("content")[0].get("content")
 
 
+def extract_rich_text_content_from_obj(obj):
+    return obj.get("content")[0].get("content")
+
+
 def extract_text_and_style(rich_text_objs):
     text = rich_text_objs.get("value")
     marks = rich_text_objs.get("marks")
+    if marks is None:
+        print(rich_text_objs)
     if len(marks) > 0:
         style = marks[0].get("type")
         return text, style
