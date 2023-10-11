@@ -1,9 +1,6 @@
-def extract_slogan_content(proj):
-    return proj.slogan.get("content")[0].get("content")
-
-
-def extract_description_content(proj):
-    return proj.short_description.get("content")[0].get("content")
+def extract_rich_text_content(proj, name):
+    entity = getattr(proj, name)
+    return entity.get("content")[0].get("content")
 
 
 def extract_text_and_style(rich_text_objs):

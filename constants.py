@@ -3,3 +3,5 @@
 LINE_BREAK = "---\n\n"
 
 MADE_WITH_HEADER = "Made With"
+
+FEATURES_HEADER = "Features"
