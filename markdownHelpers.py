@@ -19,6 +19,10 @@ def to_markdown_link(str, url):
     return "[" + str + "](" + url + ")"
 
 
+def to_markdown_image(str, url):
+    return "![" + str + "](" + url + ")"
+
+
 def slogan_to_markdown_text(rich_text):
     accumulator = ""
     for obj in rich_text:

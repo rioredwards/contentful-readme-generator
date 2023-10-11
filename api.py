@@ -1,5 +1,6 @@
 import contentful
 from dotenv import dotenv_values
+import requests
 
 # Get environment variables from .env file
 envConfig = dotenv_values(".env")
@@ -12,3 +13,11 @@ client = contentful.Client(contentfulSpaceID, contentfulAccessToken)
 
 def get_project(projID):
     return client.entry(projID)
+
+
+def get_linked_entries(entry, field):
+    return entry.fields()[field]
+
+
+def retrieve_image(img_id):
+    return client.asset(img_id)
