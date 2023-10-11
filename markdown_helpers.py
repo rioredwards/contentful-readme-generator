@@ -1,3 +1,9 @@
+from content_extractors import (
+    extract_slogan_text_and_style,
+    extract_url_and_display_text,
+)
+
+
 # This function converts any string to formatted markdown
 def to_markdown_text(str, style):
     match style:
@@ -20,15 +26,13 @@ def to_markdown_link(str, url):
 
 
 def to_markdown_image(str, url):
-    return "![" + str + "](" + url + ")"
+    return f"![{str}]({url})"
 
 
 def slogan_to_markdown_text(rich_text):
     accumulator = ""
-    for obj in rich_text:
-        value = obj.get("value")
-        marks = obj.get("marks")
-        type = marks[0].get("type") if len(marks) > 0 else None
+    for rich_text_obj in rich_text:
+        value, type = extract_slogan_text_and_style(rich_text_obj)
         accumulator += to_markdown_text(value, type)
     return accumulator + "\n\n"
 
@@ -36,7 +40,6 @@ def slogan_to_markdown_text(rich_text):
 def links_to_markdown_links(links):
     accumulator = ""
     for link in links:
-        url = link.url
-        displayText = link.fields()["display_text"]
-        accumulator += to_markdown_link(displayText, url) + "&nbsp;"
+        url, text = extract_url_and_display_text(link)
+        accumulator += to_markdown_link(text, url) + "&nbsp;"
     return accumulator + "\n\n"

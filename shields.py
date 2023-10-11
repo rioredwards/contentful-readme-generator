@@ -1,3 +1,6 @@
+from content_extractors import extract_shield_info
+from markdown_helpers import to_markdown_image
+
 SHIELDS_BASE_URL = "https://img.shields.io/badge/-"
 
 
@@ -20,14 +23,9 @@ def make_shield_URL(
 
 
 def make_shield_str(shield_obj):
-    name = shield_obj.fields()["name"]
-    textStr = shield_obj.fields()["text"]
-    bgColor = shield_obj.fields()["background_color"]
-    logoName = shield_obj.fields()["logo_name"]
-    logoColor = shield_obj.fields()["logo_color"]
-    style = shield_obj.fields()["style"]
+    info = extract_shield_info(shield_obj)
+    URL = make_shield_URL(*info[1:])
+    name = info[0]
 
-    shield_URL = make_shield_URL(textStr, bgColor, logoName, logoColor, style)
-
-    shield = f"![{name}]({shield_URL})"
+    shield = to_markdown_image(name, URL)
     return shield

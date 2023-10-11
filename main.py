@@ -1,13 +1,13 @@
 import sys
-from api import get_project, retrieve_image
-from markdownHelpers import (
-    to_markdown_text,
-    slogan_to_markdown_text,
-    links_to_markdown_links,
-    to_markdown_image,
-)
+from api import get_project
 from constants import LINE_BREAK
-from shields import make_shield_str
+from format import (
+    format_title,
+    format_slogan,
+    format_header,
+    format_links,
+    format_shields,
+)
 
 
 # Get project's entry ID from Args. If no Args, exit with error message.
@@ -20,33 +20,33 @@ project = get_project(project_entry_ID)
 print("Project requested: ", project.title)
 
 # Create string for title (Text)
-titleStr = to_markdown_text(project.title, "h1")
+title_str = format_title(project)
 
 # Create string for slogan (Rich Text)
-slogan_rich_text_nodes = project.slogan.get("content")[0].get("content")
-slogan_text = slogan_to_markdown_text(slogan_rich_text_nodes)
+slogan_str = format_slogan(project)
 
 # Create string for header image (Image)
-header_image_url_endpoint = (
-    project.fields()["header_image"].fields().get("file").get("url")
-)
-header_image_url_full = "https://" + header_image_url_endpoint
-header_image_title = project.fields()["header_image"].fields().get("title")
-header_image = to_markdown_image(header_image_title, header_image_url_full)
+header_str = format_header(project)
 
 # Create string for links (Links)
-links = links_to_markdown_links(project.links)
+links_str = format_links(project)
 
 # Create strings for shields (Images)
-shield = project.shields[0]
-shieldStr = make_shield_str(shield)
+shields_str = format_shields(project)
 
 
 # Write contents to README.md
-markdown_sections = [titleStr, slogan_text, header_image, links, LINE_BREAK, shieldStr]
+markdown_sections = [
+    title_str,
+    slogan_str,
+    header_str,
+    links_str,
+    LINE_BREAK,
+    shields_str,
+]
 finalStr = "".join(markdown_sections)
-# print("Writing to README.md...")
-# print(finalStr)
+print("Writing to README.md...")
+print(finalStr)
 f = open("README.md", "w")
 f.write(finalStr)
 f.close()
