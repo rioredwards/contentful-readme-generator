@@ -1,10 +1,11 @@
 import sys
 from api import get_project
-from constants import LINE_BREAK
+from constants import LINE_BREAK, TECH_STACK_HEADER
+from markdown_helpers import to_markdown_text
 from format import (
     format_title,
     format_slogan,
-    format_header,
+    format_header_img,
     format_links,
     format_shields,
 )
@@ -26,27 +27,30 @@ title_str = format_title(project)
 slogan_str = format_slogan(project)
 
 # Create string for header image (Image)
-header_str = format_header(project)
+header_str = format_header_img(project)
 
 # Create string for links (Links)
 links_str = format_links(project)
 
 # Create strings for shields (Images)
+tech_stack_header = to_markdown_text(TECH_STACK_HEADER, "h2")
 shields_str = format_shields(project)
 
-
-# Write contents to README.md
+# Create final string for README.md
 markdown_sections = [
     title_str,
     slogan_str,
     header_str,
     links_str,
     LINE_BREAK,
+    tech_stack_header,
     shields_str,
 ]
 finalStr = "".join(markdown_sections)
 print("Writing to README.md...")
 print(finalStr)
+
+# Write contents to README.md
 f = open("README.md", "w")
 f.write(finalStr)
 f.close()

@@ -6,4 +6,6 @@ Level-Up your code with **Code Quest**!
 
 ---
 
+## Tech Stack
+
 ![Typescript](https://img.shields.io/badge/-Typescript-3178C6?logo=TypeScript&logoColor=black&style=for-the-badge)&nbsp;![React](https://img.shields.io/badge/-React-61DAFB?logo=React&logoColor=black&style=for-the-badge)&nbsp;

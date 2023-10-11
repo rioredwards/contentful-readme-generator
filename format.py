@@ -21,7 +21,7 @@ def format_slogan(proj):
     return slogan_to_markdown_text(slogan_rich_text_objs)
 
 
-def format_header(proj):
+def format_header_img(proj):
     url, title = extract_header_image_url_and_title(proj)
     return to_markdown_image(url, title)
 
@@ -36,4 +36,4 @@ def format_shields(proj):
     for shield in proj.shields:
         shieldStr = make_shield_str(shield)
         acc += shieldStr + "&nbsp;"
-    return acc
+    return acc + "\n\n"
