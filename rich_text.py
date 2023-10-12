@@ -29,7 +29,7 @@ def process_hyperlink(node, inside_ordered_list, accumulator):
     return []
 
 
-def process_text(node, inside_ordered_list, accumulator):
+def process_text(node):
     value = node.get("value", None)
     marks = node.get("marks", [])
     styles = [mark.get("type") for mark in marks] if marks else []
@@ -38,11 +38,7 @@ def process_text(node, inside_ordered_list, accumulator):
         return []
 
     item = {"type": "text", "text": value, "styles": styles}
-    if inside_ordered_list:
-        accumulator.append(item)
-    else:
-        return [item]
-    return []
+    return item
 
 
 # Should return a list where each element describes an element in the rich text
@@ -100,9 +96,12 @@ def extract_values_and_styles(
         if node_type == "hyperlink":
             process_hyperlink(data, inside_ordered_list, accumulator)
             inside_hyperlink = True
+            return
 
         elif node_type == "text" and not inside_hyperlink:
-            process_text(data, inside_ordered_list, accumulator)
+            new_item = process_text(data)
+            accumulator.append(new_item)
+            return
 
         for _, val in data.items():
             if val is None or len(val) == 0:
@@ -116,8 +115,6 @@ def extract_values_and_styles(
             )
 
         if is_ordered_list:
-            # Add newline object before and after ordered-list
-            # accumulator.append({"type": "text", "text": "\n", "styles": []})
             accumulator.append(
                 {
                     "type": "ordered-list",
@@ -125,7 +122,6 @@ def extract_values_and_styles(
                     "styles": [],
                 }
             )
-            # accumulator.append({"type": "text", "text": "\n", "styles": []})
 
     elif isinstance(data, list):
         for item in data:
