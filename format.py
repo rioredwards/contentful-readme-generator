@@ -1,46 +1,12 @@
-from markdown_helpers import to_markdown_text
 from content_extractors import (
-    extract_rich_text_content,
     extract_header_image_url_and_title,
-    extract_rich_text_content_from_obj,
 )
 from markdown_helpers import (
-    to_markdown_text,
-    rich_to_markdown_text,
     links_to_markdown_links,
     to_markdown_image,
 )
 from shields import make_shield_str
-
-
-def markdown_from_rich_text_objs(data, is_ordered_list=False):
-    result = ""
-    for idx, item in enumerate(data):
-        if isinstance(item, dict):
-            item_type = item.get("type")
-            text = item.get("text")
-            styles = item.get("styles", [])
-            url = item.get("url", None)
-
-            # Apply styles if any
-            for style in styles:
-                text = to_markdown_text(text, style)
-
-            # Handle hyperlink separately
-            if item_type == "hyperlink":
-                text = f"[{text}]({url})"
-
-            # Ordered list numbering
-            if is_ordered_list:
-                result += f"{idx + 1}. {text}\n"
-            else:
-                result += f"{text}"
-
-        elif isinstance(item, list):
-            # Recursively handle nested lists
-            result += markdown_from_rich_text_objs(item, is_ordered_list=True)
-
-    return result
+from rich_text import markdown_from_rich_text_objs, extract_rich_text_content
 
 
 def format_rich_text(proj, name):
