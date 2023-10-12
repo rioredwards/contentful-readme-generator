@@ -15,16 +15,24 @@ from shields import make_shield_str
 
 def markdown_from_rich_text_objs(data, is_ordered_list=False):
     result = ""
-
     for idx, item in enumerate(data):
-        if isinstance(item, tuple):
-            text, styles = item
-            if styles is not None:
-                for style in styles:
-                    text = to_markdown_text(text, style)
+        if isinstance(item, dict):
+            item_type = item.get("type")
+            text = item.get("text")
+            styles = item.get("styles", [])
+            url = item.get("url", None)
 
-            if is_ordered_list and idx != 0:
-                result += f"{idx}. {text}\n"
+            # Apply styles if any
+            for style in styles:
+                text = to_markdown_text(text, style)
+
+            # Handle hyperlink separately
+            if item_type == "hyperlink":
+                text = f"[{text}]({url})"
+
+            # Ordered list numbering
+            if is_ordered_list:
+                result += f"{idx + 1}. {text}\n"
             else:
                 result += f"{text}"
 
@@ -37,8 +45,8 @@ def markdown_from_rich_text_objs(data, is_ordered_list=False):
 
 def format_rich_text(proj, name):
     rich_text_objs = extract_rich_text_content(proj, name)
-    accumulator = markdown_from_rich_text_objs(rich_text_objs)
-    return accumulator + "\n\n"
+    markdown = markdown_from_rich_text_objs(rich_text_objs)
+    return markdown + "\n\n"
 
 
 def format_header_img(proj):

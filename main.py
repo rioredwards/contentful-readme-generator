@@ -20,6 +20,9 @@ project_entry_ID = (
 project = get_project(project_entry_ID)
 print("Project requested: ", project.title)
 
+# reflection_str = format_rich_text(project, "reflection")  # Testing
+
+
 # Create string for title (Text)
 title_str = to_markdown_header(project.title, 1)
 
@@ -48,10 +51,13 @@ description_str = format_rich_text(project, "short_description")
 features_header = to_markdown_header("Features", 2)
 features_str = format_rich_text(project, "features")
 
-
 # Create string for configure (Rich Text)
 configure_header = to_markdown_header("Configure", 2)
 configure_str = format_rich_text(project, "configure")
+
+# Create string for reflection (Rich Text)
+reflection_header = to_markdown_header("Reflection", 2)
+reflection_str = format_rich_text(project, "reflection")
 
 # Create final string for README.md
 markdown_sections = [
@@ -69,6 +75,8 @@ markdown_sections = [
     usage_str,
     configure_header,
     configure_str,
+    reflection_header,
+    reflection_str,
 ]
 
 for section in markdown_sections:
