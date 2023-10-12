@@ -19,6 +19,8 @@ def extract_values_and_styles(data, inside_ordered_list=False, accumulator=None)
     if isinstance(data, dict):
         node_type = data.get("nodeType")
         is_ordered_list = node_type == "ordered-list"
+        if is_ordered_list:
+            accumulator.append(("\n", None))
 
         if node_type == "text":
             value = data.get("value", None)

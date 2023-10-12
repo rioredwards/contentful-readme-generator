@@ -23,8 +23,8 @@ def markdown_from_rich_text_objs(data, is_ordered_list=False):
                 for style in styles:
                     text = to_markdown_text(text, style)
 
-            if is_ordered_list:
-                result += f"{idx + 1}. {text}\n"
+            if is_ordered_list and idx != 0:
+                result += f"{idx}. {text}\n"
             else:
                 result += f"{text}"
 
