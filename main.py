@@ -1,9 +1,8 @@
 import sys
 from api import get_project
 from constants import LINE_BREAK
-from markdown_helpers import to_markdown_text
+from markdown_helpers import to_markdown_header, to_markdown_header
 from format import (
-    format_title,
     format_rich_text,
     format_header_img,
     format_links,
@@ -22,7 +21,7 @@ project = get_project(project_entry_ID)
 print("Project requested: ", project.title)
 
 # Create string for title (Text)
-title_str = format_title(project)
+title_str = to_markdown_header(project.title, 1)
 
 
 # Create string for header image (Image)
@@ -32,11 +31,11 @@ header_img_str = format_header_img(project)
 links_str = format_links(project)
 
 # Create strings for shields (Images)
-made_with_header = to_markdown_text("Made With", "h2")
+made_with_header = to_markdown_header("Made With", 2)
 shields_str = format_shields(project)
 
 # Create string for usage (Rich Text)
-usage_header = to_markdown_text("Usage", "h2")
+usage_header = to_markdown_header("Usage", 2)
 usage_str = format_rich_text(project, "usage")
 
 # Create string for slogan (Rich Text)
@@ -46,12 +45,12 @@ slogan_str = format_rich_text(project, "slogan")
 description_str = format_rich_text(project, "short_description")
 
 # Create string for features (Rich Text)
-features_header = to_markdown_text("Features", "h2")
+features_header = to_markdown_header("Features", 2)
 features_str = format_rich_text(project, "features")
 
 
 # Create string for configure (Rich Text)
-configure_header = to_markdown_text("Configure", "h2")
+configure_header = to_markdown_header("Configure", 2)
 configure_str = format_rich_text(project, "configure")
 
 # Create final string for README.md
@@ -61,16 +60,20 @@ markdown_sections = [
     header_img_str,
     links_str,
     LINE_BREAK,
-    # description_str,
-    # made_with_header,
-    # shields_str,
-    # features_header,
-    # features_str,
-    # usage_header,
-    # usage_str,
-    # configure_header,
-    # configure_str,
+    description_str,
+    made_with_header,
+    shields_str,
+    features_header,
+    features_str,
+    usage_header,
+    usage_str,
+    configure_header,
+    configure_str,
 ]
+
+for section in markdown_sections:
+    print(section)
+
 finalStr = "".join(markdown_sections)
 print("Writing to README.md...")
 print(finalStr)

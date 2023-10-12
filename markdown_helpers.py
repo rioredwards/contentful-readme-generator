@@ -4,23 +4,25 @@ from content_extractors import (
 )
 
 
+def to_markdown_header(str, level):
+    return "#" * level + " " + str + "\n\n"
+
+
 # This function converts any string to formatted markdown
 def to_markdown_text(str, style):
-    match style:
-        case "h1":
-            return "# " + str + "\n\n"
-        case "h2":
-            return "## " + str + "\n\n"
-        case "h3":
-            return "### " + str + "\n\n"
-        case "bold":
-            return "**" + str + "**"
-        case "italic":
-            return "_" + str + "_"
-        case _:
-            if style is not None:
-                print("Unrecognized style: " + style)
-            return str
+    if style is None:
+        return str
+
+    switcher = {
+        "bold": f"**{str}**",
+        "italic": f"*{str}*",
+        "underline": f"<u>{str}</u>",
+        "strikethrough": f"~~{str}~~",
+        "code": f"`{str}`",
+    }
+    str = switcher.get(style, str)
+
+    return str
 
 
 def to_markdown_link(str, url):

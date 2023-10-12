@@ -24,14 +24,15 @@ This immersive web app generates pseudo-random coding challenges, making learnin
 ## Usage
 
 1. Pull the lever to start.
-
 2. Click on the stop buttons to stop the reels.
-
 3. Once all the reels have stopped, your quest will be printed out on the display panel.
-
 4. Get coding!
+
 
 ## Configure
 
-To get more control over the quest generated:
+To get more control over the quest generated:1. Click and drag the reels up and down to select a choice.
+2. Lock in your choice by clicking the lock switch.
+3. Generate a quest as normal.
+** If you get stuck, click the help button for more information.
 
