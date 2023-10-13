@@ -12,7 +12,7 @@ def to_markdown_link(str, url):
 
 
 def to_markdown_image(str, url):
-    return f"![{str}]({url})\n"
+    return f"![{str}]({url})\n\n"
 
 
 def links_to_markdown_links(links):
