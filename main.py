@@ -37,6 +37,14 @@ configure_header = to_markdown_header("Configure", 2)
 configure_str = format_rich_text(project, "configure")
 reflection_header = to_markdown_header("Reflection", 2)
 reflection_str = format_rich_text(project, "reflection")
+lessons_learned_header = to_markdown_header("Lessons Learned", 2)
+lessons_learned_str = format_rich_text(project, "lessons_learned")
+authors_header = to_markdown_header("Authors", 2)
+authors_str = format_rich_text(project, "authors")
+acknowledgements_header = to_markdown_header("Acknowledgements", 2)
+acknowledgements_str = format_rich_text(project, "acknowledgements")
+custom_str = format_rich_text(project, "custom")
+
 
 # Create final string for README.md
 markdown_sections = [
@@ -55,8 +63,15 @@ markdown_sections = [
     usage_str,
     configure_header,
     configure_str,
+    lessons_learned_header,
+    lessons_learned_str,
     reflection_header,
     reflection_str,
+    authors_header,
+    authors_str,
+    acknowledgements_header,
+    acknowledgements_str,
+    custom_str,
 ]
 
 for section in markdown_sections:

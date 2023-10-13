@@ -46,6 +46,20 @@ To get more control over the quest generated:
 \* If you get stuck, click the help button for more information.
 
 
+## Lessons Learned
+
+* **Best Practices** for designing and building advanced, UI's in React.
+* **Complex Animations** using the Framer Motion Animation Library.
+* Employing **Typescript** to create **type-safe** and **scalable** applications.
+* Complex state management using **Redux**.
+* Designing highly reusable **React components**.
+* Designing and integrating custom SVG artwork using **Adobe Illustrator**.
+* Utilizing **Figma** to create high-fidelity mockups.
+* Creating eye-catching brand assets using **Canva**.
+* Practicing standard **git and GitHub** workflows to safely and efficiently manage code.
+* Deploying to **Netlify**.
+
+
 ## Reflection
 
 Since I started on my coding journey, I've always been drawn to learning tools that use [Gamification](https://en.wikipedia.org/wiki/Gamification) in some form to teach coding concepts ([some examples](https://github.com/rioredwards/code-quest#gamification-examples)). I find that I learn best when I'm having fun, and I wanted to create a tool that would help others learn in the same way.
@@ -57,5 +71,26 @@ It was also the first time I used Framer Motion. This library is really powerful
 I also gained an appreciation for the process of creating "proof-of-concepts" before attempting to implement certain features into a project. I tried to predict what the most challenging aspects of creating this app might be and created prototypes in a throwaway file or code sandbox. This saved me a lot of time and frustration in the long run.
 
 I had a lot of fun working on this project, and I'm excited to continue learning and improving my skills. ✅
+
+
+## Authors
+
+* [Rio Edwards](https://www.github.com/rioredwards)
+
+
+## Acknowledgements
+
+* [readme.so](https://readme.so/editor)
+* [Simple Icons](https://simpleicons.org/?q=redux)
+* [shields.io](https://shields.io/)
+
+
+# Gamification Examples
+
+* [Flexbox Froggy](https://flexboxfroggy.com/)
+* [Grid Garden](https://cssgridgarden.com/)
+* [LeetCode](https://leetcode.com/)
+* [kaggle](https://www.kaggle.com/competitions/)
+* [Vim Adventures](https://vim-adventures.com/)
 
 
