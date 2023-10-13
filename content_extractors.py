@@ -1,7 +1,3 @@
-def extract_rich_text_content_from_obj(obj):
-    return obj.get("content")[0].get("content")
-
-
 def extract_text_and_style(rich_text_objs):
     text = rich_text_objs.get("value")
     marks = rich_text_objs.get("marks")
@@ -46,34 +42,3 @@ def extract_shield_info(shield):
     style = shield.fields()["style"]
     return name, textStr, bgColor, logoName, logoColor, style
 
-
-reflection_data_model = {
-    "en-US": {
-        "nodeType": "document",
-        "data": {},
-        "content": [
-            {
-                "nodeType": "paragraph",
-                "data": {},
-                "content": [
-                    {"nodeType": "text", "value": "", "marks": [], "data": {}},
-                    {
-                        "nodeType": "hyperlink",
-                        "data": {
-                            "uri": "https://github.com/rioredwards/code-quest/edit/main/README.md"
-                        },
-                        "content": [
-                            {
-                                "nodeType": "text",
-                                "value": "GitHub",
-                                "marks": [],
-                                "data": {},
-                            }
-                        ],
-                    },
-                    {"nodeType": "text", "value": "", "marks": [], "data": {}},
-                ],
-            }
-        ],
-    }
-}

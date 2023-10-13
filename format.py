@@ -6,12 +6,14 @@ from markdown_helpers import (
     to_markdown_image,
 )
 from shields import make_shield_str
-from rich_text import markdown_from_rich_text_objs, extract_rich_text_content
+from contentful_rich_text_to_markdown_converter import convert_rich_text_to_markdown
+
+print(convert_rich_text_to_markdown)
 
 
 def format_rich_text(proj, name):
-    rich_text_objs = extract_rich_text_content(proj, name)
-    markdown = markdown_from_rich_text_objs(rich_text_objs)
+    entity = getattr(proj, name)
+    markdown = convert_rich_text_to_markdown(entity)
     return markdown + "\n\n"
 
 

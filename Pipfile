@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 contentful = "*"
 python-dotenv = "*"
+contentful-rich-text-to-markdown-converter = "*"
 
 [dev-packages]
 
