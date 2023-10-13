@@ -5,6 +5,7 @@ from markdown_helpers import to_markdown_header, to_markdown_header
 from format import (
     format_rich_text,
     format_header_img,
+    format_preview_gif,
     format_links,
     format_shields,
     format_rich_text,
@@ -20,42 +21,20 @@ project_entry_ID = (
 project = get_project(project_entry_ID)
 print("Project requested: ", project.title)
 
-# reflection_str = format_rich_text(project, "reflection")  # Testing
-
-
-# Create string for title (Text)
 title_str = to_markdown_header(project.title, 1)
-
-
-# Create string for header image (Image)
 header_img_str = format_header_img(project)
-
-# Create string for links (Links)
+preview_gif_str = format_preview_gif(project)
 links_str = format_links(project)
-
-# Create strings for shields (Images)
 made_with_header = to_markdown_header("Made With", 2)
 shields_str = format_shields(project)
-
-# Create string for usage (Rich Text)
 usage_header = to_markdown_header("Usage", 2)
 usage_str = format_rich_text(project, "usage")
-
-# Create string for slogan (Rich Text)
 slogan_str = format_rich_text(project, "slogan")
-
-# Create string for description (Rich Text)
 description_str = format_rich_text(project, "short_description")
-
-# Create string for features (Rich Text)
 features_header = to_markdown_header("Features", 2)
 features_str = format_rich_text(project, "features")
-
-# Create string for configure (Rich Text)
 configure_header = to_markdown_header("Configure", 2)
 configure_str = format_rich_text(project, "configure")
-
-# Create string for reflection (Rich Text)
 reflection_header = to_markdown_header("Reflection", 2)
 reflection_str = format_rich_text(project, "reflection")
 
@@ -71,6 +50,7 @@ markdown_sections = [
     shields_str,
     features_header,
     features_str,
+    preview_gif_str,
     usage_header,
     usage_str,
     configure_header,

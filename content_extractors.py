@@ -27,6 +27,13 @@ def extract_header_image_url_and_title(proj):
     return title, url_full
 
 
+def extract_preview_gif_url_and_title(proj):
+    title = proj.fields()["preview_gif"].fields().get("title")
+    url_endpoint = proj.fields()["preview_gif"].fields().get("file").get("url")
+    url_full = "https:" + url_endpoint
+    return title, url_full
+
+
 def extract_url_and_display_text(link):
     url = link.url
     displayText = link.fields()["display_text"]
@@ -41,4 +48,3 @@ def extract_shield_info(shield):
     logoColor = shield.fields()["logo_color"]
     style = shield.fields()["style"]
     return name, textStr, bgColor, logoName, logoColor, style
-
