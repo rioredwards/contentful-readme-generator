@@ -1,7 +1,3 @@
-def extract_rich_text_content_from_obj(obj):
-    return obj.get("content")[0].get("content")
-
-
 def extract_text_and_style(rich_text_objs):
     text = rich_text_objs.get("value")
     marks = rich_text_objs.get("marks")
@@ -31,6 +27,13 @@ def extract_header_image_url_and_title(proj):
     return title, url_full
 
 
+def extract_preview_gif_url_and_title(proj):
+    title = proj.fields()["preview_gif"].fields().get("title")
+    url_endpoint = proj.fields()["preview_gif"].fields().get("file").get("url")
+    url_full = "https:" + url_endpoint
+    return title, url_full
+
+
 def extract_url_and_display_text(link):
     url = link.url
     displayText = link.fields()["display_text"]
@@ -45,35 +48,3 @@ def extract_shield_info(shield):
     logoColor = shield.fields()["logo_color"]
     style = shield.fields()["style"]
     return name, textStr, bgColor, logoName, logoColor, style
-
-
-reflection_data_model = {
-    "en-US": {
-        "nodeType": "document",
-        "data": {},
-        "content": [
-            {
-                "nodeType": "paragraph",
-                "data": {},
-                "content": [
-                    {"nodeType": "text", "value": "", "marks": [], "data": {}},
-                    {
-                        "nodeType": "hyperlink",
-                        "data": {
-                            "uri": "https://github.com/rioredwards/code-quest/edit/main/README.md"
-                        },
-                        "content": [
-                            {
-                                "nodeType": "text",
-                                "value": "GitHub",
-                                "marks": [],
-                                "data": {},
-                            }
-                        ],
-                    },
-                    {"nodeType": "text", "value": "", "marks": [], "data": {}},
-                ],
-            }
-        ],
-    }
-}
