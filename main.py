@@ -5,7 +5,7 @@ from markdown_helpers import to_markdown_header, to_markdown_header
 from format import (
     format_rich_text,
     format_img,
-    format_links,
+    format_links_section,
     format_shields,
     format_rich_text,
 )
@@ -21,7 +21,7 @@ print("Project requested: ", project.title)
 title_str = to_markdown_header(project.title, 1)
 header_img_str = format_img(project, "header_image")
 preview_gif_str = format_img(project, "preview_gif")
-links_str = format_links(project)
+links_str = format_links_section(project)
 made_with_header = to_markdown_header("Made With", 2)
 shields_str = format_shields(project)
 usage_header = to_markdown_header("Usage", 2)
