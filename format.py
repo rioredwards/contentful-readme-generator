@@ -1,7 +1,8 @@
-from markdown_helpers import to_markdown_image, to_markdown_link
+from markdown_helpers import to_markdown_header, to_markdown_image, to_markdown_link
 from shields import make_shield_str
 from contentful_rich_text_to_markdown_converter import convert_rich_text_to_markdown
 from content_extractors import extract_img_url_and_title, extract_url_and_display_text
+from constants import SectionType
 
 
 def format_rich_text(proj, name):
@@ -29,7 +30,25 @@ def format_links_section(proj):
 
 def format_shields(proj):
     acc = ""
-    for shield in proj.shields:
+    for shield in proj.made_with:
         shieldStr = make_shield_str(shield)
         acc += shieldStr + "&nbsp;"
     return acc + "\n\n"
+
+
+def format_proj_section(proj, name, type, print_header=False):
+    if print_header is not False:
+        header = to_markdown_header(name.capitalize(), 2)
+    else:
+        header = ""
+
+    if type == SectionType.RICH_TEXT:
+        return header + format_rich_text(proj, name)
+    elif type == SectionType.IMAGE:
+        return header + format_img(proj, name)
+    elif type == SectionType.LINKS:
+        return header + format_links_section(proj)
+    elif type == SectionType.SHIELDS:
+        return header + format_shields(proj)
+    else:
+        raise ValueError("Invalid type for format_proj_section")
