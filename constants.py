@@ -1,7 +1,11 @@
-# Constants for general markdown syntax
+from enum import Enum
 
 LINE_BREAK = "---\n\n"
 
-MADE_WITH_HEADER = "Made With"
 
-FEATURES_HEADER = "Features"
+class SectionType(Enum):
+    PLAIN_TEXT = 1
+    RICH_TEXT = 2
+    IMAGE = 3
+    LINKS = 4
+    SHIELDS = 5

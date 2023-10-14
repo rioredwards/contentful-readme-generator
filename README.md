@@ -2,7 +2,6 @@
 
 Level-Up your code with **Code Quest**!
 
-
 ![Code Quest Header](https://images.ctfassets.net/l329ngjcm8m3/4QkRN0AaZHDZgk5I9DHTPc/74c033b40d980b8cbba803a174e1eb81/banner.png)
 
 [Try](https://code-quest-app.netlify.app/) • [GitHub](https://github.com/rioredwards/code-quest)
@@ -11,14 +10,9 @@ Level-Up your code with **Code Quest**!
 
 This immersive web app generates pseudo-random coding challenges, making learning practical coding skills **exciting** and **engaging**!
 
+## Made with
 
-## Made With
-
-![Typescript](https://img.shields.io/badge/-Typescript-3178C6?logo=TypeScript&logoColor=black&style=for-the-badge)
-
-&nbsp;![React](https://img.shields.io/badge/-React-61DAFB?logo=React&logoColor=black&style=for-the-badge)
-
-&nbsp;
+![Typescript](https://img.shields.io/badge/-Typescript-3178C6?logo=TypeScript&logoColor=black&style=for-the-badge)&nbsp;![React](https://img.shields.io/badge/-React-61DAFB?logo=React&logoColor=black&style=for-the-badge)&nbsp;
 
 ## Features
 
@@ -28,7 +22,6 @@ This immersive web app generates pseudo-random coding challenges, making learnin
 * **Smooth Animations**: This app makes heavy use of the Framer Motion animation library, which brings the UI to life!
 * **Custom Artwork**: All artwork is custom-made, giving Code Quest a unique look and feel.
 
-
 ![Code Quest Preview Gif](https://images.ctfassets.net/l329ngjcm8m3/3LXNCgaTgVhIL2k4SkAWLP/1e38876f67eb55d31ad6962f883323e9/Code-Quest-Preview-Gif-_Optimized_.gif)
 
 ## Usage
@@ -37,7 +30,6 @@ This immersive web app generates pseudo-random coding challenges, making learnin
 2. Click on the stop buttons to stop the reels.
 3. Once all the reels have stopped, your quest will be printed out on the display panel.
 4. Get coding!
-
 
 ## Configure
 
@@ -49,8 +41,7 @@ To get more control over the quest generated:
 
 \* If you get stuck, click the help button for more information.
 
-
-## Lessons Learned
+## Lessons learned
 
 * **Best Practices** for designing and building advanced, UI's in React.
 * **Complex Animations** using the Framer Motion Animation Library.
@@ -62,7 +53,6 @@ To get more control over the quest generated:
 * Creating eye-catching brand assets using **Canva**.
 * Practicing standard **git and GitHub** workflows to safely and efficiently manage code.
 * Deploying to **Netlify**.
-
 
 ## Reflection
 
@@ -76,11 +66,9 @@ I also gained an appreciation for the process of creating "proof-of-concepts" be
 
 I had a lot of fun working on this project, and I'm excited to continue learning and improving my skills. ✅
 
-
 ## Authors
 
 * [Rio Edwards](https://www.github.com/rioredwards)
-
 
 ## Acknowledgements
 
@@ -88,13 +76,11 @@ I had a lot of fun working on this project, and I'm excited to continue learning
 * [Simple Icons](https://simpleicons.org/?q=redux)
 * [shields.io](https://shields.io/)
 
-
-# Gamification Examples
+## Gamification Examples
 
 * [Flexbox Froggy](https://flexboxfroggy.com/)
 * [Grid Garden](https://cssgridgarden.com/)
 * [LeetCode](https://leetcode.com/)
 * [kaggle](https://www.kaggle.com/competitions/)
 * [Vim Adventures](https://vim-adventures.com/)
-
 
