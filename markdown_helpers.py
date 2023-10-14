@@ -11,8 +11,8 @@ def to_markdown_link(str, url):
     return "[" + str + "](" + url + ")"
 
 
-def to_markdown_image(str, url):
-    return f"![{str}]({url})\n\n"
+def to_markdown_image(name, url):
+    return f"![{name}]({url})\n"
 
 
 def links_to_markdown_links(links):

@@ -4,26 +4,23 @@ from constants import LINE_BREAK
 from markdown_helpers import to_markdown_header, to_markdown_header
 from format import (
     format_rich_text,
-    format_header_img,
-    format_preview_gif,
+    format_img,
     format_links,
     format_shields,
     format_rich_text,
 )
 
 
-# Get project's entry ID from Args. If no Args, exit with error message.
+# Fetch project entry by ID
 project_entry_ID = (
     sys.argv[1] if len(sys.argv) > 1 else sys.exit("No project entry ID supplied.")
 )
-
-# Fetch project entry by ID
 project = get_project(project_entry_ID)
 print("Project requested: ", project.title)
 
 title_str = to_markdown_header(project.title, 1)
-header_img_str = format_header_img(project)
-preview_gif_str = format_preview_gif(project)
+header_img_str = format_img(project, "header_image")
+preview_gif_str = format_img(project, "preview_gif")
 links_str = format_links(project)
 made_with_header = to_markdown_header("Made With", 2)
 shields_str = format_shields(project)

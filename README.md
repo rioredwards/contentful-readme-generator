@@ -4,7 +4,6 @@ Level-Up your code with **Code Quest**!
 
 
 ![Code Quest Header](https://images.ctfassets.net/l329ngjcm8m3/4QkRN0AaZHDZgk5I9DHTPc/74c033b40d980b8cbba803a174e1eb81/banner.png)
-
 [Try](https://code-quest-app.netlify.app/) • [GitHub](https://github.com/rioredwards/code-quest)
 
 ---
@@ -15,9 +14,7 @@ This immersive web app generates pseudo-random coding challenges, making learnin
 ## Made With
 
 ![Typescript](https://img.shields.io/badge/-Typescript-3178C6?logo=TypeScript&logoColor=black&style=for-the-badge)
-
 &nbsp;![React](https://img.shields.io/badge/-React-61DAFB?logo=React&logoColor=black&style=for-the-badge)
-
 &nbsp;
 
 ## Features
@@ -30,7 +27,6 @@ This immersive web app generates pseudo-random coding challenges, making learnin
 
 
 ![Code Quest Preview Gif](https://images.ctfassets.net/l329ngjcm8m3/3LXNCgaTgVhIL2k4SkAWLP/1e38876f67eb55d31ad6962f883323e9/Code-Quest-Preview-Gif-_Optimized_.gif)
-
 ## Usage
 
 1. Pull the lever to start.
@@ -89,7 +85,7 @@ I had a lot of fun working on this project, and I'm excited to continue learning
 * [shields.io](https://shields.io/)
 
 
-# Gamification Examples
+## Gamification Examples
 
 * [Flexbox Froggy](https://flexboxfroggy.com/)
 * [Grid Garden](https://cssgridgarden.com/)

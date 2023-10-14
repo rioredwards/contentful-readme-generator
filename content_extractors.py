@@ -10,6 +10,14 @@ def extract_text_and_style(rich_text_objs):
         return text, None
 
 
+def extract_img_url_and_title(proj, image_name):
+    fields = proj.fields()[image_name].fields()
+    title = fields.get("title")
+    url_endpoint = fields.get("file").get("url")
+    url_full = "https:" + url_endpoint
+    return url_full, title
+
+
 def extract_description_text_and_style(slogan_objs):
     text = slogan_objs.get("value")
     marks = slogan_objs.get("marks")
@@ -18,20 +26,6 @@ def extract_description_text_and_style(slogan_objs):
         return text, style
     else:
         return text, None
-
-
-def extract_header_image_url_and_title(proj):
-    title = proj.fields()["header_image"].fields().get("title")
-    url_endpoint = proj.fields()["header_image"].fields().get("file").get("url")
-    url_full = "https:" + url_endpoint
-    return title, url_full
-
-
-def extract_preview_gif_url_and_title(proj):
-    title = proj.fields()["preview_gif"].fields().get("title")
-    url_endpoint = proj.fields()["preview_gif"].fields().get("file").get("url")
-    url_full = "https:" + url_endpoint
-    return title, url_full
 
 
 def extract_url_and_display_text(link):
