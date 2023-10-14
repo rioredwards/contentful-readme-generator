@@ -38,7 +38,8 @@ def format_shields(proj):
 
 def format_proj_section(proj, name, type, print_header=False):
     if print_header is not False:
-        header = to_markdown_header(name.capitalize(), 2)
+        capitalized_name = name.replace("_", " ").capitalize()
+        header = to_markdown_header(capitalized_name, 2)
     else:
         header = ""
 

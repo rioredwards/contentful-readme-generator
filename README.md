@@ -8,7 +8,7 @@ Level-Up your code with **Code Quest**!
 
 This immersive web app generates pseudo-random coding challenges, making learning practical coding skills **exciting** and **engaging**!
 
-## Made_with
+## Made with
 
 ![Typescript](https://img.shields.io/badge/-Typescript-3178C6?logo=TypeScript&logoColor=black&style=for-the-badge)&nbsp;![React](https://img.shields.io/badge/-React-61DAFB?logo=React&logoColor=black&style=for-the-badge)&nbsp;
 
@@ -39,7 +39,7 @@ To get more control over the quest generated:
 
 \* If you get stuck, click the help button for more information.
 
-## Lessons_learned
+## Lessons learned
 
 * **Best Practices** for designing and building advanced, UI's in React.
 * **Complex Animations** using the Framer Motion Animation Library.
