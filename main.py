@@ -32,16 +32,18 @@ section_mappings = [
     ("custom", SectionType.RICH_TEXT),
 ]
 
+# Create and add project title separately
 project_title = to_markdown_header(project.title, 1)
-
 markdown_sections = [project_title]
 
+# Map through each section and add it's markdown representation to markdown_sections
 for section in section_mappings:
     name, type, *rest = section
     print_header = rest[0] if rest else False
     markdown = format_proj_section(project, name, type, print_header)
     markdown_sections.append(markdown)
 
+# Join all markdown sections into one string
 finalStr = "".join(markdown_sections)
 print("Writing to README.md...")
 print(finalStr)
