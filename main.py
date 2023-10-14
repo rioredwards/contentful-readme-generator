@@ -19,6 +19,7 @@ section_mappings = [
     ("slogan", SectionType.RICH_TEXT),
     ("header_image", SectionType.IMAGE),
     ("links", SectionType.LINKS),
+    LINE_BREAK,
     ("description", SectionType.RICH_TEXT),
     ("made_with", SectionType.SHIELDS, True),
     ("features", SectionType.RICH_TEXT, True),
@@ -38,6 +39,9 @@ markdown_sections = [project_title]
 
 # Map through each section and add it's markdown representation to markdown_sections
 for section in section_mappings:
+    if section == LINE_BREAK:
+        markdown_sections.append(LINE_BREAK)
+        continue
     name, type, *rest = section
     print_header = rest[0] if rest else False
     markdown = format_proj_section(project, name, type, print_header)

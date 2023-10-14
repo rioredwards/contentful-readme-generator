@@ -6,6 +6,8 @@ Level-Up your code with **Code Quest**!
 
 [Try](https://code-quest-app.netlify.app/) • [GitHub](https://github.com/rioredwards/code-quest)
 
+---
+
 This immersive web app generates pseudo-random coding challenges, making learning practical coding skills **exciting** and **engaging**!
 
 ## Made with
