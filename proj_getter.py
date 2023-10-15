@@ -51,8 +51,8 @@ def retrieve_proj_id(dir_path, retrying=False):
     if saved_proj_id and not retrying:
         print("Found project associated with this directory")
         while True:
-            answer = input("Use this project entry ID? (y/n): ")
-            if answer == "y":
+            answer = input("Use this project entry ID? (Y/n): ")
+            if answer == "y" or answer == "":
                 return saved_proj_id
             elif answer == "n":
                 new_proj_id = input("Enter new project entry ID: ")
@@ -65,10 +65,30 @@ def retrieve_proj_id(dir_path, retrying=False):
         return new_proj_id
 
 
-def get_project(client, proj_id):
+def get_project_from_client(client, proj_id):
     try:
         project = client.entry(proj_id)
         return project
     except:
         print("Project not found")
         return False
+
+
+# Look for project entry ID in .env file
+# If it exists, prompt user to use it
+# If it doesn't exist, prompt user to enter it
+# When project is successfully retrieved, save the project entry ID to .env file and exit loop
+def get_project(client, dir_path, proj_id_from_args):
+    retrying_proj_id = False
+    while True:
+        if not retrying_proj_id:
+            proj_id = proj_id_from_args or retrieve_proj_id(dir_path)
+        else:
+            proj_id = retrieve_proj_id(dir_path, retrying=True)
+        project = get_project_from_client(client, proj_id)
+        if project:
+            if not mapping_exists_in_env(dir_path, proj_id):
+                save_mapping(dir_path, proj_id)
+            return project
+        else:
+            retrying_proj_id = True

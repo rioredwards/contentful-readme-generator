@@ -1,12 +1,14 @@
-# Code Quest
+# j-scribe
 
-Level up your code with **Code Quest**!
+_Your_ _**All-in-One**_ _JavaScript_ _**Sandbox**_ _and_ _**Notebook**_ _._
 
-![Code Quest Header](images/code_quest_header.png)
+![j-scribe Header](images/j-scribe_header.png)
 
-[Try](https://code-quest-app.netlify.app/) • [GitHub](https://github.com/rioredwards/code-quest)
+[Try](https://j-scribe.vercel.app/) • [GitHub](https://github.com/rioredwards/j-scribe)
 
-This immersive web app generates pseudo-random coding challenges, making learning practical coding skills **exciting** and **engaging**!
+j-scribe is a versatile platform to create, share, and modify code snippets.
+
+With support for various libraries and frameworks, j-scribe's intuitive user interface and live preview make it easy to see the results of your code as you type.
 
 ## Made with
 
@@ -14,59 +16,55 @@ This immersive web app generates pseudo-random coding challenges, making learnin
 
 ## Features
 
-* **Choose Your Own Adventure**: Users can have quests generated completely at random, or they may specify certain parameters, such as the time limit, and the programming language.
-* **Realistic Challenges**: Code Quest will never create a quest that doesn't make sense (e.g. CLI quest using React). A sophisticated algorithm ensures that any quest generated is feasible.
-* **Intuitive UI**: The UI was designed to resemble a slot machine, giving the app a familiar feel and making it easy to get started. If you do get stuck, there is a built-in help menu to explain the various features.
-* **Smooth Animations**: This app makes heavy use of the Framer Motion animation library, which brings the UI to life!
-* **Custom Artwork**: All artwork is custom-made, giving Code Quest a unique look and feel.
+* **All-in-One Sandbox**: Write, edit, and preview JavaScript and React code snippets without the need for external tools.
+* **Real-Time Editing**: See the results of your code immediately with j-scribe's live preview feature, making it easier to debug and visualize your work.
+* **Library Support**: Utilize popular libraries and frameworks to enhance your coding experience.
+* **Text-Editor**: j-scribe provides a user-friendly way to document code using the built-in Markdown text editor.
+* **Sharing and Collaboration**: j-scribe projects are automatically serialized and saved to user's machines, making it possible to store and share projects with others.
+* **Command-Line Interface**: j-scribe offers a convenient CLI, available on npm, for opening and creating j-scribe files from the command line.
 
-![Code Quest Preview Gif](images/code_quest_preview_gif.gif)
+## Preview
+
+![j-scribe preview](images/j-scribe_preview.gif)
 
 ## Usage
 
-1. Pull the lever to start.
-2. Click on the stop buttons to stop the reels.
-3. Once all the reels have stopped, your quest will be printed out on the display panel.
-4. Get coding!
+1. Install the [CLI](https://www.npmjs.com/package/j-scribe1) by running `npm i j-scribe1`
+2. Open the built-in tutorial with `j-scribe1 serve _intro` and follow the instructions to get familiar with the basic features j-scribe offers.
+3. Open new or existing notes with `j-scribe1 serve <filename>` (Optionally include a file path: `j-scribe1 serve <path/filename>`).
+4. Run `j-scribe1 --help `for additional help
 
 ## Configure
 
-To get more control over the quest generated:
-
-1. Click and drag the reels up and down to select a choice.
-2. Lock in your choice by clicking the lock switch.
-3. Generate a quest as normal.
-
-\* If you get stuck, click the help button for more information.
-
 ## Lessons learned
 
-* **Best Practices** for designing and building advanced, UI's in React.
-* **Complex Animations** using the Framer Motion Animation Library.
-* Employing **Typescript** to create **type-safe** and **scalable** applications.
-* Complex state management using **Redux**.
-* Designing highly reusable **React components**.
-* Designing and integrating custom SVG artwork using **Adobe Illustrator**.
-* Utilizing **Figma** to create high-fidelity mockups.
-* Creating eye-catching brand assets using **Canva**.
-* Practicing standard **git and GitHub** workflows to safely and efficiently manage code.
-* Deploying to **Netlify**.
+* **Best Practices** for designing and building advanced, production-ready apps.
+* Integrating **Typescript**, **React**, and **React-Redux** together.
+* Designing highly **reusable React components**.
+* Creating a **custom plugin for Esbuild** to enable in-browser transpiling/bundling with support for imports from npm.
+* Creating a **caching layer** for imported modules/bundled code using **Local-Forage**.
+* Using **Redux-Middlewares** for handling complex business logic.
+* Taking advantage of powerful **third-party libraries** such as: **bulma**, **immer**, **monaco-editor**, **react-md-editor**, **commander**, etc...
+* Safely **handling user input** by utilizing iframes as a code-execution environment- the same technique used by popular sites such as Codepen.
+* Utilizing **Lerna** and **nx** to create a **mono-repo** with multiple packages and build targets.
+* Creating a **Restful-API** to serve up a **Front-End** application from a **CLI**.
+* Utilizing **web-assembly** to go...BLAZINGLY FAST!
+* **Deploying** to **npm** and **Vercel**.
 
 ## Reflection
 
-Since I started on my coding journey, I've always been drawn to learning tools that use [Gamification](https://en.wikipedia.org/wiki/Gamification) in some form to teach coding concepts ([some examples](https://github.com/rioredwards/code-quest#gamification-examples)). I find that I learn best when I'm having fun, and I wanted to create a tool that would help others learn in the same way.
+**Note**: A large portion of this project was built by following along with a [tutorial series](https://www.udemy.com/course/react-and-typescript-build-a-portfolio-project/) by Stephen Grider on Udemy. I extended and improved upon the original idea.
 
-This was the first time since attending a coding boot camp that I've gotten to focus as much on the design and UI of an application as the technical "business logic". I have a love for design and art, so it was really fun to get to flex those muscles again.
+This was a great learning experience for me! I learned a ton about TypeScript, React, and React-Redux as well as some project-specific libraries such as Monaco-Editor and Resizable. An unexpected challenge I faced was working with Lerna and understanding the build process. This project contains multiple packages, and I had to learn how to configure Lerna to build and deploy the packages in the correct order and for different production environments.
 
-It was also the first time I used Framer Motion. This library is really powerful and I enjoyed diving into it. Getting a convincing "Infinite Scroll" effect on the reels was pretty tricky, but in that process, I learned about some of the more advanced features of Framer Motion and gained a deeper understanding of creating animations in code, more generally.
-
-I also gained an appreciation for the process of creating "proof-of-concepts" before attempting to implement certain features into a project. I tried to predict what the most challenging aspects of creating this app might be and created prototypes in a throwaway file or code sandbox. This saved me a lot of time and frustration in the long run.
+I also learned a lot about the importance of planning and design when building a large-scale application. It's very clear to me how useful OOP principles can be in designing larger apps. Developing each component in a modular way and ensuring that the code is reusable makes it much easier to modify and add more features later on.
 
 I had a lot of fun working on this project, and I'm excited to continue learning and improving my skills. ✅
 
 ## Authors
 
 * [Rio Edwards](https://www.github.com/rioredwards)
+* [Stephen Grider](https://github.com/StephenGrider)
 
 ## Acknowledgements
 
@@ -74,11 +72,5 @@ I had a lot of fun working on this project, and I'm excited to continue learning
 * [Simple Icons](https://simpleicons.org/?q=redux)
 * [shields.io](https://shields.io/)
 
-## Gamification Examples
 
-* [Flexbox Froggy](https://flexboxfroggy.com/)
-* [Grid Garden](https://cssgridgarden.com/)
-* [LeetCode](https://leetcode.com/)
-* [kaggle](https://www.kaggle.com/competitions/)
-* [Vim Adventures](https://vim-adventures.com/)
 

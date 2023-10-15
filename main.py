@@ -2,13 +2,7 @@ import os
 import argparse
 import sys
 from api import connect_to_contentful
-from dotenv import dotenv_values
-from proj_getter import (
-    save_mapping,
-    retrieve_proj_id,
-    get_project,
-    mapping_exists_in_env,
-)
+from proj_getter import get_project
 from constants import LINE_BREAK
 from markdown_helpers import to_markdown_header, to_markdown_header
 from constants import SectionType
@@ -18,8 +12,8 @@ from format import format_proj_section
 # Print warning and prompt user for confirmation
 print("WARNING: This script will overwrite any existing README.md and images folder")
 while True:
-    user_input = input("Continue? (y/n): ")
-    if user_input == "y":
+    user_input = input("Continue? (Y/n): ")
+    if user_input == "y" or user_input == "":
         break
     elif user_input == "n":
         sys.exit()
@@ -43,25 +37,10 @@ if not args.cwd:
 # Connect to Contentful API
 client = connect_to_contentful()
 
-# Look for project entry ID in .env file
-# If it exists, prompt user to use it
-# If it doesn't exist, prompt user to enter it
-# When project is successfully retrieved, save the project entry ID to .env file and exit loop
-retrying_proj_id = False
-dir_path = args.cwd
-while True:
-    if not retrying_proj_id:
-        proj_id = args.proj_id or retrieve_proj_id(dir_path)
-    else:
-        proj_id = retrieve_proj_id(dir_path, retrying=True)
-    project = get_project(client, proj_id)
-    if project:
-        if not mapping_exists_in_env(dir_path, proj_id):
-            save_mapping(dir_path, proj_id)
-        break
-    else:
-        retrying_proj_id = True
-
+# Prompt user for project ID and
+# Get project from Contentful API
+proj_id_from_args = args.proj_id
+project = get_project(client, args.cwd, proj_id_from_args)
 print("Project requested: ", project.title)
 
 # change working directory to to project folder
@@ -76,7 +55,7 @@ section_mappings = [
     ("description", SectionType.RICH_TEXT),
     ("made_with", SectionType.SHIELDS, True),
     ("features", SectionType.RICH_TEXT, True),
-    ("preview_gif", SectionType.IMAGE),
+    ("preview", SectionType.IMAGE, True),
     ("usage", SectionType.RICH_TEXT, True),
     ("configure", SectionType.RICH_TEXT, True),
     ("lessons_learned", SectionType.RICH_TEXT, True),
