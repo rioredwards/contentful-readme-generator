@@ -1,3 +1,4 @@
+import os
 import requests
 from utils import convert_to_snake_case, get_file_extension_from_url
 
@@ -9,7 +10,13 @@ def generate_file_name_and_extension(title, remote_url):
     return new_file_name_with_extension
 
 
-def download_image(url, file_name):
-    with open(file_name, "wb") as file:
+def create_folder(folder_name):
+    if not os.path.exists(folder_name):
+        os.makedirs(folder_name)
+
+
+def download_image(url, folder_name, file_name):
+    create_folder(folder_name)
+    with open(f"{folder_name}/{file_name}", "wb") as file:
         response = requests.get(url)
         file.write(response.content)

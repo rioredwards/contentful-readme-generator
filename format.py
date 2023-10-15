@@ -24,10 +24,11 @@ def format_img(proj, image_name):
 
     contentful_url, title = extract_img_url_and_title(img_fields)
 
+    folder_name = "images"
     local_file_name = generate_file_name_and_extension(title, contentful_url)
-    local_url = f"./{local_file_name}"
+    local_url = f"{folder_name}/{local_file_name}"
 
-    download_image(contentful_url, local_file_name)
+    download_image(contentful_url, folder_name, local_file_name)
 
     markdown = to_markdown_image(title, local_url)
     return markdown + "\n\n"

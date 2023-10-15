@@ -2,7 +2,7 @@
 
 Level up your code with **Code Quest**!
 
-![Code Quest Header](./code_quest_header.png)
+![Code Quest Header](images/code_quest_header.png)
 
 [Try](https://code-quest-app.netlify.app/) • [GitHub](https://github.com/rioredwards/code-quest)
 
@@ -20,7 +20,7 @@ This immersive web app generates pseudo-random coding challenges, making learnin
 * **Smooth Animations**: This app makes heavy use of the Framer Motion animation library, which brings the UI to life!
 * **Custom Artwork**: All artwork is custom-made, giving Code Quest a unique look and feel.
 
-![Code Quest Preview Gif](./code_quest_preview_gif.gif)
+![Code Quest Preview Gif](images/code_quest_preview_gif.gif)
 
 ## Usage
 
