@@ -28,6 +28,7 @@ def format_img(proj, image_name):
     local_file_name = generate_file_name_and_extension(title, contentful_url)
     local_url = f"{folder_name}/{local_file_name}"
 
+    print(f"Downloading image: {local_url}")
     download_image(contentful_url, folder_name, local_file_name)
 
     markdown = to_markdown_image(title, local_url)

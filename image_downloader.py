@@ -11,12 +11,17 @@ def generate_file_name_and_extension(title, remote_url):
 
 
 def create_folder(folder_name):
-    if not os.path.exists(folder_name):
-        os.makedirs(folder_name)
+    current_directory = os.getcwd()
+    folder_path = os.path.join(current_directory, folder_name)
+    if not os.path.exists(folder_path):
+        os.makedirs(folder_path)
 
 
 def download_image(url, folder_name, file_name):
+    current_directory = os.getcwd()
+    folder_path = os.path.join(current_directory, folder_name)
     create_folder(folder_name)
-    with open(f"{folder_name}/{file_name}", "wb") as file:
+    file_path = os.path.join(folder_path, file_name)
+    with open(file_path, "wb") as file:
         response = requests.get(url)
         file.write(response.content)
