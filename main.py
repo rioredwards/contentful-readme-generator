@@ -1,24 +1,31 @@
 import os
 import argparse
 import sys
-from api import get_project
+from api import connect_to_contentful
+from dotenv import dotenv_values
+from proj_getter import (
+    save_mapping,
+    retrieve_proj_id,
+    get_project,
+    mapping_exists_in_env,
+)
 from constants import LINE_BREAK
 from markdown_helpers import to_markdown_header, to_markdown_header
 from constants import SectionType
 from format import format_proj_section
 
-# Print warning and prompt user for confirmation
-print("WARNING: This script will overwrite any existing README.md and images/ folder")
-print("Press enter to continue or esc to exit")
 
-# Wait for user input
+# Print warning and prompt user for confirmation
+print("WARNING: This script will overwrite any existing README.md and images folder")
 while True:
-    user_input = input()
-    if user_input == "":
+    user_input = input("Continue? (y/n): ")
+    if user_input == "y":
         break
-    elif user_input == "\x1b":
-        print("Exiting script...")
+    elif user_input == "n":
         sys.exit()
+    else:
+        # Do nothing and prompt user again
+        pass
 
 # Parse arguments
 parser = argparse.ArgumentParser()
@@ -28,23 +35,37 @@ parser.add_argument("--cwd", help="Original working directory")
 parser.add_argument("--proj_id", help="Project ID")
 args = parser.parse_args()
 
-# If --cwd argument exists, change working directory to it
-# Otherwise, exit the script
-if args.cwd:
-    os.chdir(args.cwd)
-else:
+# Check if --cwd argument was supplied. If not: exit
+if not args.cwd:
     print("Please supply --cwd argument")
     sys.exit()
 
-# Fetch project entry by ID
-project_entry_ID = args.proj_id if args.proj_id else input("Enter project entry ID: ")
-try:
-    project = get_project(project_entry_ID)
-except:
-    print("Project not found")
-    sys.exit()
+# Connect to Contentful API
+client = connect_to_contentful()
+
+# Look for project entry ID in .env file
+# If it exists, prompt user to use it
+# If it doesn't exist, prompt user to enter it
+# When project is successfully retrieved, save the project entry ID to .env file and exit loop
+retrying_proj_id = False
+dir_path = args.cwd
+while True:
+    if not retrying_proj_id:
+        proj_id = args.proj_id or retrieve_proj_id(dir_path)
+    else:
+        proj_id = retrieve_proj_id(dir_path, retrying=True)
+    project = get_project(client, proj_id)
+    if project:
+        if not mapping_exists_in_env(dir_path, proj_id):
+            save_mapping(dir_path, proj_id)
+        break
+    else:
+        retrying_proj_id = True
 
 print("Project requested: ", project.title)
+
+# change working directory to to project folder
+os.chdir(args.cwd)
 
 # Defines the order and type of sections to be printed
 # Format: (name, type, print_header = False)

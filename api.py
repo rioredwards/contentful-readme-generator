@@ -1,4 +1,5 @@
 import contentful
+import sys
 from dotenv import dotenv_values
 
 # Get environment variables from .env file
@@ -10,5 +11,10 @@ contentfulAccessToken = envConfig["CONTENTFUL_ACCESS_TOKEN"]
 client = contentful.Client(contentfulSpaceID, contentfulAccessToken)
 
 
-def get_project(projID):
-    return client.entry(projID)
+def connect_to_contentful():
+    try:
+        client = contentful.Client(contentfulSpaceID, contentfulAccessToken)
+        return client
+    except:
+        print("Failed to connect to Contentful API")
+        sys.exit()
