@@ -10,10 +10,9 @@ def extract_text_and_style(rich_text_objs):
         return text, None
 
 
-def extract_img_url_and_title(proj, image_name):
-    fields = proj.fields()[image_name].fields()
-    title = fields.get("title")
-    url_endpoint = fields.get("file").get("url")
+def extract_img_url_and_title(img_fields):
+    title = img_fields.get("title")
+    url_endpoint = img_fields.get("file").get("url")
     url_full = "https:" + url_endpoint
     return url_full, title
 
