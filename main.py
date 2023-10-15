@@ -19,7 +19,6 @@ section_mappings = [
     ("slogan", SectionType.RICH_TEXT),
     ("header_image", SectionType.IMAGE),
     ("links", SectionType.LINKS),
-    LINE_BREAK,
     ("description", SectionType.RICH_TEXT),
     ("made_with", SectionType.SHIELDS, True),
     ("features", SectionType.RICH_TEXT, True),

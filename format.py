@@ -3,6 +3,8 @@ from shields import make_shield_str
 from contentful_rich_text_to_markdown_converter import convert_rich_text_to_markdown
 from content_extractors import extract_img_url_and_title, extract_url_and_display_text
 from constants import SectionType
+from image_downloader import download_image, generate_file_name_and_extension
+from utils import capitalize_str
 
 
 def format_rich_text(proj, name):
@@ -20,8 +22,14 @@ def format_img(proj, image_name):
     if img_fields is None:
         return ""
 
-    url_full, title = extract_img_url_and_title(img_fields)
-    markdown = to_markdown_image(title, url_full)
+    contentful_url, title = extract_img_url_and_title(img_fields)
+
+    local_file_name = generate_file_name_and_extension(title, contentful_url)
+    local_url = f"./{local_file_name}"
+
+    download_image(contentful_url, local_file_name)
+
+    markdown = to_markdown_image(title, local_url)
     return markdown + "\n\n"
 
 
@@ -53,15 +61,15 @@ def format_shields(proj):
 
 def format_proj_section(proj, name, type, print_header=False):
     if print_header is not False:
-        capitalized_name = name.replace("_", " ").capitalize()
+        capitalized_name = capitalize_str(name)
         header = to_markdown_header(capitalized_name, 2)
     else:
         header = ""
 
-    if type == SectionType.RICH_TEXT:
-        return header + format_rich_text(proj, name)
-    elif type == SectionType.IMAGE:
+    if type == SectionType.IMAGE:
         return header + format_img(proj, name)
+    elif type == SectionType.RICH_TEXT:
+        return header + format_rich_text(proj, name)
     elif type == SectionType.LINKS:
         return header + format_links_section(proj)
     elif type == SectionType.SHIELDS:
