@@ -22,10 +22,10 @@ while True:
         pass
 
 # Parse arguments
-parser = argparse.ArgumentParser()
 # Use directory supplied by --cwd argument so that the script can be run from anywhere
-parser.add_argument("--cwd", help="Original working directory")
 # Use project ID supplied by --proj_id argument if it exists, otherwise prompt user for it
+parser = argparse.ArgumentParser()
+parser.add_argument("--cwd", help="Original working directory")
 parser.add_argument("--proj_id", help="Project ID")
 args = parser.parse_args()
 
@@ -39,8 +39,7 @@ client = connect_to_contentful()
 
 # Prompt user for project ID and
 # Get project from Contentful API
-proj_id_from_args = args.proj_id
-project = get_project(client, args.cwd, proj_id_from_args)
+project = get_project(client, args.cwd, args.proj_id)
 print("Project requested: ", project.title)
 
 # change working directory to to project folder

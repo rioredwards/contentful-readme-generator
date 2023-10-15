@@ -16,12 +16,12 @@ With support for various libraries and frameworks, j-scribe's intuitive user int
 
 ## Features
 
-* **All-in-One Sandbox**: Write, edit, and preview JavaScript and React code snippets without the need for external tools.
-* **Real-Time Editing**: See the results of your code immediately with j-scribe's live preview feature, making it easier to debug and visualize your work.
-* **Library Support**: Utilize popular libraries and frameworks to enhance your coding experience.
-* **Text-Editor**: j-scribe provides a user-friendly way to document code using the built-in Markdown text editor.
-* **Sharing and Collaboration**: j-scribe projects are automatically serialized and saved to user's machines, making it possible to store and share projects with others.
-* **Command-Line Interface**: j-scribe offers a convenient CLI, available on npm, for opening and creating j-scribe files from the command line.
+- **All-in-One Sandbox**: Write, edit, and preview JavaScript and React code snippets without the need for external tools.
+- **Real-Time Editing**: See the results of your code immediately with j-scribe's live preview feature, making it easier to debug and visualize your work.
+- **Library Support**: Utilize popular libraries and frameworks to enhance your coding experience.
+- **Text-Editor**: j-scribe provides a user-friendly way to document code using the built-in Markdown text editor.
+- **Sharing and Collaboration**: j-scribe projects are automatically serialized and saved to user's machines, making it possible to store and share projects with others.
+- **Command-Line Interface**: j-scribe offers a convenient CLI, available on npm, for opening and creating j-scribe files from the command line.
 
 ## Preview
 
@@ -34,22 +34,20 @@ With support for various libraries and frameworks, j-scribe's intuitive user int
 3. Open new or existing notes with `j-scribe1 serve <filename>` (Optionally include a file path: `j-scribe1 serve <path/filename>`).
 4. Run `j-scribe1 --help `for additional help
 
-## Configure
-
 ## Lessons learned
 
-* **Best Practices** for designing and building advanced, production-ready apps.
-* Integrating **Typescript**, **React**, and **React-Redux** together.
-* Designing highly **reusable React components**.
-* Creating a **custom plugin for Esbuild** to enable in-browser transpiling/bundling with support for imports from npm.
-* Creating a **caching layer** for imported modules/bundled code using **Local-Forage**.
-* Using **Redux-Middlewares** for handling complex business logic.
-* Taking advantage of powerful **third-party libraries** such as: **bulma**, **immer**, **monaco-editor**, **react-md-editor**, **commander**, etc...
-* Safely **handling user input** by utilizing iframes as a code-execution environment- the same technique used by popular sites such as Codepen.
-* Utilizing **Lerna** and **nx** to create a **mono-repo** with multiple packages and build targets.
-* Creating a **Restful-API** to serve up a **Front-End** application from a **CLI**.
-* Utilizing **web-assembly** to go...BLAZINGLY FAST!
-* **Deploying** to **npm** and **Vercel**.
+- **Best Practices** for designing and building advanced, production-ready apps.
+- Integrating **Typescript**, **React**, and **React-Redux** together.
+- Designing highly **reusable React components**.
+- Creating a **custom plugin for Esbuild** to enable in-browser transpiling/bundling with support for imports from npm.
+- Creating a **caching layer** for imported modules/bundled code using **Local-Forage**.
+- Using **Redux-Middlewares** for handling complex business logic.
+- Taking advantage of powerful **third-party libraries** such as: **bulma**, **immer**, **monaco-editor**, **react-md-editor**, **commander**, etc...
+- Safely **handling user input** by utilizing iframes as a code-execution environment- the same technique used by popular sites such as Codepen.
+- Utilizing **Lerna** and **nx** to create a **mono-repo** with multiple packages and build targets.
+- Creating a **Restful-API** to serve up a **Front-End** application from a **CLI**.
+- Utilizing **web-assembly** to go...BLAZINGLY FAST!
+- **Deploying** to **npm** and **Vercel**.
 
 ## Reflection
 
@@ -63,14 +61,11 @@ I had a lot of fun working on this project, and I'm excited to continue learning
 
 ## Authors
 
-* [Rio Edwards](https://www.github.com/rioredwards)
-* [Stephen Grider](https://github.com/StephenGrider)
+- [Rio Edwards](https://www.github.com/rioredwards)
+- [Stephen Grider](https://github.com/StephenGrider)
 
 ## Acknowledgements
 
-* [readme.so](https://readme.so/editor)
-* [Simple Icons](https://simpleicons.org/?q=redux)
-* [shields.io](https://shields.io/)
-
-
-
+- [readme.so](https://readme.so/editor)
+- [Simple Icons](https://simpleicons.org/?q=redux)
+- [shields.io](https://shields.io/)
