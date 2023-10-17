@@ -130,11 +130,11 @@
         },
         "contentful-rich-text-to-markdown-converter": {
             "hashes": [
-                "sha256:be70a1d4028aae27ee019fc8667fa6c074fa2696208c134cacf5e9e78f28a01a",
-                "sha256:ecccdb5ddf310c43301ea35454050b24a206146f0ec78bc604bd615e4794efb2"
+                "sha256:c8dab771add67567e061b8dbe8a7b12ceae05aa9c0a95e0796c8df4b0a124359",
+                "sha256:f69d20d27512be887f1f3c1c48c191951b3d5eac3681ba0593857d62bf596f2f"
             ],
             "index": "pypi",
-            "version": "==0.2"
+            "version": "==1.2"
         },
         "idna": {
             "hashes": [

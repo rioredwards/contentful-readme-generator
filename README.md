@@ -14,17 +14,17 @@ This immersive web app generates pseudo-random coding challenges, making learnin
 
 ## Features
 
-* **Choose Your Own Adventure**: Users can have quests generated completely at random, or they may specify certain parameters, such as the time limit, and the programming language.
-* **Realistic Challenges**: Code Quest will never create a quest that doesn't make sense (e.g. CLI quest using React). A sophisticated algorithm ensures that any quest generated is feasible.
-* **Intuitive UI**: The UI was designed to resemble a slot machine, giving the app a familiar feel and making it easy to get started. If you do get stuck, there is a built-in help menu to explain the various features.
-* **Smooth Animations**: This app makes heavy use of the Framer Motion animation library, which brings the UI to life!
-* **Custom Artwork**: All artwork is custom-made, giving Code Quest a unique look and feel.
+- **Choose Your Own Adventure**: Users can have quests generated completely at random, or they may specify certain parameters, such as the time limit, and the programming language.
+- **Realistic Challenges**: Code Quest will never create a quest that doesn't make sense (e.g. CLI quest using React). A sophisticated algorithm ensures that any quest generated is feasible.
+- **Intuitive UI**: The UI was designed to resemble a slot machine, giving the app a familiar feel and making it easy to get started. If you do get stuck, there is a built-in help menu to explain the various features.
+- **Smooth Animations**: This app makes heavy use of the Framer Motion animation library, which brings the UI to life!
+- **Custom Artwork**: All artwork is custom-made, giving Code Quest a unique look and feel.
 
 ![Code Quest Preview Gif](images/code_quest_preview_gif.gif)
 
 ## Usage
 
-1. Pull the lever to start.
+1. Download the code and cd into the project directory
 2. Click on the stop buttons to stop the reels.
 3. Once all the reels have stopped, your quest will be printed out on the display panel.
 4. Get coding!
@@ -41,16 +41,16 @@ To get more control over the quest generated:
 
 ## Lessons learned
 
-* **Best Practices** for designing and building advanced, UI's in React.
-* **Complex Animations** using the Framer Motion Animation Library.
-* Employing **Typescript** to create **type-safe** and **scalable** applications.
-* Complex state management using **Redux**.
-* Designing highly reusable **React components**.
-* Designing and integrating custom SVG artwork using **Adobe Illustrator**.
-* Utilizing **Figma** to create high-fidelity mockups.
-* Creating eye-catching brand assets using **Canva**.
-* Practicing standard **git and GitHub** workflows to safely and efficiently manage code.
-* Deploying to **Netlify**.
+- **Best Practices** for designing and building advanced, UI's in React.
+- **Complex Animations** using the Framer Motion Animation Library.
+- Employing **Typescript** to create **type-safe** and **scalable** applications.
+- Complex state management using **Redux**.
+- Designing highly reusable **React components**.
+- Designing and integrating custom SVG artwork using **Adobe Illustrator**.
+- Utilizing **Figma** to create high-fidelity mockups.
+- Creating eye-catching brand assets using **Canva**.
+- Practicing standard **git and GitHub** workflows to safely and efficiently manage code.
+- Deploying to **Netlify**.
 
 ## Reflection
 
@@ -66,19 +66,18 @@ I had a lot of fun working on this project, and I'm excited to continue learning
 
 ## Authors
 
-* [Rio Edwards](https://www.github.com/rioredwards)
+- [Rio Edwards](https://www.github.com/rioredwards)
 
 ## Acknowledgements
 
-* [readme.so](https://readme.so/editor)
-* [Simple Icons](https://simpleicons.org/?q=redux)
-* [shields.io](https://shields.io/)
+- [readme.so](https://readme.so/editor)
+- [Simple Icons](https://simpleicons.org/?q=redux)
+- [shields.io](https://shields.io/)
 
 ## Gamification Examples
 
-* [Flexbox Froggy](https://flexboxfroggy.com/)
-* [Grid Garden](https://cssgridgarden.com/)
-* [LeetCode](https://leetcode.com/)
-* [kaggle](https://www.kaggle.com/competitions/)
-* [Vim Adventures](https://vim-adventures.com/)
-
+- [Flexbox Froggy](https://flexboxfroggy.com/)
+- [Grid Garden](https://cssgridgarden.com/)
+- [LeetCode](https://leetcode.com/)
+- [kaggle](https://www.kaggle.com/competitions/)
+- [Vim Adventures](https://vim-adventures.com/)
