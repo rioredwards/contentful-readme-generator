@@ -1,49 +1,77 @@
-# Tic Tac Toe CPP
+# Test Project
 
-![Tic Tac Toe CPP Header](images/tic_tac_toe_cpp_header.png)
+This is a test slogan
 
-A classic game of Tic Tac Toe for the Command Line.
+![Test Header](images/test_header.png)
+
+[Google](https://www.google.com/) • [YouTube](https://www.youtube.com/)
+
+**This is a paragraph in bold.**
+
+_This is a paragraph in italics._
+
+**_This is a paragraph in italics and bold._**
+
+`This is some inline code.`
+
+## Made with
+
+![React](https://img.shields.io/badge/-React-61DAFB?logo=React&logoColor=black&style=for-the-badge)&nbsp;![Typescript](https://img.shields.io/badge/-Typescript-3178C6?logo=TypeScript&logoColor=black&style=for-the-badge)&nbsp;
 
 ## Features
 
-* Designed using OOP principles
-* Intuitive Command Line Interface
-* Screen "refreshes", giving the illusion of animation frames
-* Play against the computer
-* All user input is validated
+* Item 1
+* Item 2
 
 ## Preview
 
-![Tic_Tac_Toe_CPP_Preview](images/tic_tac_toe_cpp_preview.gif)
+![Test Preview](images/test_preview.gif)
 
 ## Usage
 
-1\. Download and cd into the project
+Step 1:
 
 ```bash
-git clone https://github.com/rioredwards/Tic-Tac-Toe.git
-cd Tic-Tac-Toe
+cd test
+ls test
+pwd test
 ```
 
-2\. Compile source code into binary (executable) file
+Step 2:
 
-```bash
-make
+```javascript
+console.log("Hello Test");
 ```
 
-3\. Run the executable file
+## Configure
 
-```bash
-./main
-```
+1. Item 1
+2. Item 2
+
+## Lessons learned
+
+* Item 1  
+   * Nested Item A  
+   * Nested Item B
+* Item 2
+
+## Reflection
+
+Normal paragraph text.
+
+> Block Quote line 1
+> 
+> Block Quote line 2
+
+There is a horizontal rule below me
+
+---
 
 ## Authors
 
-* [Rio Edwards](https://github.com/rioredwards)
+| Table Header Cell 1 | Table Header Cell 2 |
+| ------------------- | ------------------- |
+| Table Body Cell 1   | Table Body Cell 2   |
 
-## Acknowledgements
 
-* [readme.so](https://readme.so/editor)
-* [Simple Icons](https://simpleicons.org/)
-* [shields.io](https://shields.io/)
 

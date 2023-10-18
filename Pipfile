@@ -6,7 +6,7 @@ name = "pypi"
 [packages]
 contentful = "*"
 python-dotenv = "*"
-contentful-rich-text-to-markdown-converter = "*"
+contentful-rich-text-to-markdown-converter = {file = "../../projects/python-wrapper-for-contentful-rich-text-to-markdown-converter", editable = true}
 
 [dev-packages]
 

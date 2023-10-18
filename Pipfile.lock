@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "a816e52058ff5b6a5d9a0f6795dc31d1bcc4472d155502d736679ff3161de83c"
+            "sha256": "0f46cd94fec959d9f72a1ce7ca4d60ca4ac0e8c4b82fb86c6eb360d7b235836d"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -129,12 +129,8 @@
             "version": "==2.1.1"
         },
         "contentful-rich-text-to-markdown-converter": {
-            "hashes": [
-                "sha256:c8dab771add67567e061b8dbe8a7b12ceae05aa9c0a95e0796c8df4b0a124359",
-                "sha256:f69d20d27512be887f1f3c1c48c191951b3d5eac3681ba0593857d62bf596f2f"
-            ],
-            "index": "pypi",
-            "version": "==1.2"
+            "editable": true,
+            "file": "../../projects/python-wrapper-for-contentful-rich-text-to-markdown-converter"
         },
         "idna": {
             "hashes": [
@@ -179,11 +175,11 @@
         },
         "urllib3": {
             "hashes": [
-                "sha256:7a7c7003b000adf9e7ca2a377c9688bbc54ed41b985789ed576570342a375cd2",
-                "sha256:b19e1a85d206b56d7df1d5e683df4a7725252a964e3993648dd0fb5a1c157564"
+                "sha256:c97dfde1f7bd43a71c8d2a58e369e9b2bf692d1334ea9f9cae55add7d0dd0f84",
+                "sha256:fdb6d215c776278489906c2f8916e6e7d4f5a9b602ccbcfdf7f016fc8da0596e"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==2.0.6"
+            "version": "==2.0.7"
         }
     },
     "develop": {}
