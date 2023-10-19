@@ -3,7 +3,11 @@ from shields import make_shield_str
 from contentful_rich_text_to_markdown_converter import convert_rich_text_to_markdown
 from content_extractors import extract_img_url_and_title, extract_url_and_display_text
 from constants import SectionType
-from image_downloader import download_image, generate_file_name_and_extension
+from image_downloader import (
+    download_image,
+    generate_file_name_and_extension,
+    generate_local_url,
+)
 from utils import capitalize_str
 
 
@@ -27,12 +31,7 @@ def format_img(proj, image_name):
 
     contentful_url, title = extract_img_url_and_title(img_fields)
 
-    folder_name = "images"
-    local_file_name = generate_file_name_and_extension(title, contentful_url)
-    local_url = f"{folder_name}/{local_file_name}"
-
-    print(f"Downloading image: {local_url}")
-    download_image(contentful_url, folder_name, local_file_name)
+    local_url = download_image(contentful_url, title)
 
     markdown = to_markdown_image(title, local_url)
     return markdown + "\n\n"
