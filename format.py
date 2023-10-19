@@ -3,31 +3,36 @@ from shields import make_shield_str
 from contentful_rich_text_to_markdown_converter import convert_rich_text_to_markdown
 from content_extractors import extract_img_url_and_title, extract_url_and_display_text
 from constants import SectionType
-from image_downloader import download_image, generate_file_name_and_extension
+from image_downloader import download_image
 from utils import capitalize_str
+from embedded_image_search import download_embedded_images_and_reformat_markdown
 
 
 def format_rich_text(proj, name):
     markdown_section = getattr(proj, name, None)
     if markdown_section is None:
-        return ""
+        return None
 
     markdown = convert_rich_text_to_markdown(markdown_section)
-    return markdown + "\n"
+
+    # If markdown contains embedded images, download them
+    # Then replace stringified JSON with their markdown equivalents and local paths
+    markdown_scraped_for_images = download_embedded_images_and_reformat_markdown(
+        markdown
+    )
+
+    return markdown_scraped_for_images + "\n"
 
 
 def format_img(proj, image_name):
     proj_fields = proj.fields()
     img_fields = proj_fields[image_name].fields() if image_name in proj_fields else None
     if img_fields is None:
-        return ""
+        return None
 
     contentful_url, title = extract_img_url_and_title(img_fields)
 
-    local_file_name = generate_file_name_and_extension(title, contentful_url)
-    local_url = f"./{local_file_name}"
-
-    download_image(contentful_url, local_file_name)
+    local_url = download_image(contentful_url, title)
 
     markdown = to_markdown_image(title, local_url)
     return markdown + "\n\n"
@@ -36,7 +41,7 @@ def format_img(proj, image_name):
 def format_links_section(proj):
     links_section = getattr(proj, "links", None)
     if links_section is None:
-        return ""
+        return None
 
     accumulator = ""
     for i, link in enumerate(links_section):
@@ -50,7 +55,7 @@ def format_links_section(proj):
 def format_shields(proj):
     shields_section = getattr(proj, "made_with", None)
     if shields_section is None:
-        return ""
+        return None
 
     acc = ""
     for shield in shields_section:
@@ -67,12 +72,16 @@ def format_proj_section(proj, name, type, print_header=False):
         header = ""
 
     if type == SectionType.IMAGE:
-        return header + format_img(proj, name)
+        img_markdown = format_img(proj, name)
+        return header + img_markdown if img_markdown else ""
     elif type == SectionType.RICH_TEXT:
-        return header + format_rich_text(proj, name)
+        rich_text_markdown = format_rich_text(proj, name)
+        return header + rich_text_markdown if rich_text_markdown else ""
     elif type == SectionType.LINKS:
-        return header + format_links_section(proj)
+        links_markdown = format_links_section(proj)
+        return header + links_markdown if links_markdown else ""
     elif type == SectionType.SHIELDS:
-        return header + format_shields(proj)
+        shields_markdown = format_shields(proj)
+        return header + shields_markdown if shields_markdown else ""
     else:
         raise ValueError("Invalid type for format_proj_section")
