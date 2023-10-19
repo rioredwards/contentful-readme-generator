@@ -3,12 +3,9 @@ from shields import make_shield_str
 from contentful_rich_text_to_markdown_converter import convert_rich_text_to_markdown
 from content_extractors import extract_img_url_and_title, extract_url_and_display_text
 from constants import SectionType
-from image_downloader import (
-    download_image,
-    generate_file_name_and_extension,
-    generate_local_url,
-)
+from image_downloader import download_image
 from utils import capitalize_str
+from embedded_image_search import download_embedded_images_and_reformat_markdown
 
 
 def format_rich_text(proj, name):
@@ -16,11 +13,15 @@ def format_rich_text(proj, name):
     if markdown_section is None:
         return None
 
-    # If markdown contains embedded images, download them
-    # Then replace objects containing images with id-flags to be used
-    # to reinsert them after conversion to markdown
     markdown = convert_rich_text_to_markdown(markdown_section)
-    return markdown + "\n"
+
+    # If markdown contains embedded images, download them
+    # Then replace stringified JSON with their markdown equivalents and local paths
+    markdown_scraped_for_images = download_embedded_images_and_reformat_markdown(
+        markdown
+    )
+
+    return markdown_scraped_for_images + "\n"
 
 
 def format_img(proj, image_name):
