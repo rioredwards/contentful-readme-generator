@@ -48,19 +48,19 @@ os.chdir(args.cwd)
 # Defines the order and type of sections to be printed
 # Format: (name, type, print_header = False)
 section_mappings = [
-    ("slogan", SectionType.RICH_TEXT),
-    ("header_image", SectionType.IMAGE),
-    ("links", SectionType.LINKS),
-    ("description", SectionType.RICH_TEXT),
-    ("made_with", SectionType.SHIELDS, True),
-    ("features", SectionType.RICH_TEXT, True),
-    ("preview", SectionType.IMAGE, True),
-    ("usage", SectionType.RICH_TEXT, True),
-    ("configure", SectionType.RICH_TEXT, True),
-    ("lessons_learned", SectionType.RICH_TEXT, True),
-    ("reflection", SectionType.RICH_TEXT, True),
-    ("authors", SectionType.RICH_TEXT, True),
-    ("acknowledgements", SectionType.RICH_TEXT, True),
+    # ("slogan", SectionType.RICH_TEXT),
+    # ("header_image", SectionType.IMAGE),
+    # ("links", SectionType.LINKS),
+    # ("description", SectionType.RICH_TEXT),
+    # ("made_with", SectionType.SHIELDS, True),
+    # ("features", SectionType.RICH_TEXT, True),
+    # ("preview", SectionType.IMAGE, True),
+    # ("usage", SectionType.RICH_TEXT, True),
+    # ("configure", SectionType.RICH_TEXT, True),
+    # ("lessons_learned", SectionType.RICH_TEXT, True),
+    # ("reflection", SectionType.RICH_TEXT, True),
+    # ("authors", SectionType.RICH_TEXT, True),
+    # ("acknowledgements", SectionType.RICH_TEXT, True),
     ("custom", SectionType.RICH_TEXT),
 ]
 

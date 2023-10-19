@@ -12,6 +12,9 @@ def format_rich_text(proj, name):
     if markdown_section is None:
         return None
 
+    # If markdown contains embedded images, download them
+    # Then replace objects containing images with id-flags to be used
+    # to reinsert them after conversion to markdown
     markdown = convert_rich_text_to_markdown(markdown_section)
     return markdown + "\n"
 
